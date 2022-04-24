@@ -1,7 +1,6 @@
 name: deploy_as_static_in_gh_pages_branch
 on:
-  push:
-    branches: [master]
+  workflow_dispatch:
     
 jobs:
   build:
@@ -13,12 +12,6 @@ jobs:
       with:
         node-version: '16'
     - run: mkdir $GITHUB_WORKSPACE/static
-	- name: Git Clone Action
-	  uses: sudosubin/git-clone-action@v1.0.1
-	  with:
-		repository: 'MateenKhan/Angular-template'
-		platform: 'github'
-		path: static
     - run: ls  -R $GITHUB_WORKSPACE -Isrc 
     - run: npm install
     - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
@@ -31,9 +24,7 @@ jobs:
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     
     - run: cd $GITHUB_WORKSPACE/static
-    #- run: git clone https://github.com/MateenKhan/Angular-template.git -b build
-	
-
+    - run: git clone https://github.com/MateenKhan/Angular-template.git -b build
       if: success()
     - run: ls -ltr $GITHUB_WORKSPACE/static/
     - run: cd $GITHUB_WORKSPACE/static/Angular-template
