@@ -19,26 +19,26 @@ jobs:
     
     
       if: success()
-    - uses: actions/checkout@v3
-      with:
-        node-version: '16'
-        path: build
-        ref: build
-      if: success()
-    - run: echo "******************************************************"
-    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/build/public
+#     - uses: actions/checkout@v3
+#       with:
+#         node-version: '16'
+#         path: build
+#         ref: build
+#       if: success()
+#     - run: echo "******************************************************"
+#     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/build/public
     - run: git status
-    - run: git add /home/runner/work/Angular-template/Angular-template/build/
+    - run: git add *
     - run: git status
     - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
-    - run: cd $GITHUB_WORKSPACE/build/public
+#     - run: cd $GITHUB_WORKSPACE/build/public
     - run: pwd
       if: success()
     - name: push
       uses: github-actions-x/commit@v2.9
       with:
         github-token: ${{ github.token }}
-        push-branch: 'build'
+        push-branch: 'master'
         commit-message: 'build files'
         force-add: 'true'
         files: /home/runner/work/Angular-template/Angular-template/build/public/
