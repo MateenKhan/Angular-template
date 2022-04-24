@@ -11,21 +11,22 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - run: ls  -R $GITHUB_WORKSPACE 
-    - run: echo "becore install"
+    - run: ls  -R $GITHUB_WORKSPACE -Isrc 
     - run: npm install
-    - run: echo "after install"
     - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
     - run: echo "runinng build"
     - run: npm run build
     - run: echo "after build"
       if: success()
     - run: echo "******************************************************"
-    - run: echo $GITHUB_WORKSPACE
     - run: ls -ltr $GITHUB_WORKSPACE
     - run: pwd
-    - run: ls -ltr .
     - run: ls -ltr $GITHUB_WORKSPACE/dist
+    - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
+    - run: mkdir static
+    - run: cp $GITHUB_WORKSPACE/dist/angular-tempate $GITHUB_WORKSPACE/static
+    - run: cd $GITHUB_WORKSPACE/static
+    - run: ls -ltr $GITHUB_WORKSPACE/static
     - run: /usr/bin/bash -e "cd $GITHUB_WORKSPACE/dist "
     - run: pwd
     - run: cd /usr/bin/bash -e "$GITHUB_WORKSPACE/dist/angular-tempate"
