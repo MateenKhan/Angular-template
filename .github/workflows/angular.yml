@@ -28,7 +28,7 @@ jobs:
 #     - run: echo "******************************************************"
 #     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/build/public
     - run: git status
-    - run: git add *
+    - run: git add build/
     - run: git status
     - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
 #     - run: cd $GITHUB_WORKSPACE/build/public
