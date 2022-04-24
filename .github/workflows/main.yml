@@ -17,17 +17,17 @@ jobs:
     - run: echo "runinng build"
     - run: npm run build
     - run: echo "after build"
+    - run: git branch -a
       if: success()
     - run: echo "******************************************************"
-    - run: ls -ltr $GITHUB_WORKSPACE
-    - run: pwd
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
-    - run: mkdir static
-    - run: git checkout -b build remotes/origin/build
+    - run: mkdir /home/static
+    - run: cd /home/static
+    - run: git clone https://github.com/MateenKhan/Angular-template.git -b build
+    - run: git branch
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
-    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/static
-    - run: cd $GITHUB_WORKSPACE/static
-    - run: ls -ltr $GITHUB_WORKSPACE/static
+    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. /home/static
+    - run: ls -ltr /home/static
 #     - run: /usr/bin/bash -e "cd $GITHUB_WORKSPACE/dist "
 #     - run: pwd
 #     - run: cd /usr/bin/bash -e "$GITHUB_WORKSPACE/dist/angular-tempate"
@@ -44,7 +44,7 @@ jobs:
 #     - run: git remote set-url origin https://MateenKhan:Breathe%402021github.com/MateenKhan/Angular-template.git
 #     - run: git checkout -b build remotes/origin/build
     - run: git add *
-    - run: git checkout remotes/origin/build -b build
+#     - run: git checkout remotes/origin/build -b build
     - run: git commit -m "uploading build files"
     - run: git push --force
     
