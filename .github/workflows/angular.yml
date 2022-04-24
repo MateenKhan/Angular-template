@@ -9,9 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        path: master
-        ref: master
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
@@ -20,7 +17,7 @@ jobs:
     - run: npm run build
       if: success()
     - run: echo "******************************************************"
-    - run: ls  -R $GITHUB_WORKSPACE/master -Inode_modules -Isrc 
+    - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
     
 #     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/static/Angular-template
       if: success()
@@ -31,7 +28,6 @@ jobs:
         ref: build
       if: success()
     - run: echo "******************************************************"
-    - run: ls  -R $GITHUB_WORKSPACE/master -Inode_modules -Isrc 
-    - run: ls  -R $GITHUB_WORKSPACE/build -Inode_modules -Isrc 
+    - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
       
     
