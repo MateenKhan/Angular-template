@@ -3,11 +3,12 @@ on:
   workflow_dispatch:
     
 jobs:
-  ci:
+  build-and-test:
     runs-on: ubuntu-latest
-
+    name: Build and test
     steps:
-    - name: Angular Github Actions
-      uses: mayurrawte/github-angular-actions@latest
+      - uses: actions/checkout@v2
+      - uses: ng-easy/npm-install@v2
+      - run: npm run build
 
       
