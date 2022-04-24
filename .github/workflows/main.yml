@@ -24,7 +24,7 @@ jobs:
     - run: ls -ltr $GITHUB_WORKSPACE/dist
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     - run: mkdir static
-    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate $GITHUB_WORKSPACE/static
+    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/static
     - run: cd $GITHUB_WORKSPACE/static
     - run: ls -ltr $GITHUB_WORKSPACE/static
     - run: /usr/bin/bash -e "cd $GITHUB_WORKSPACE/dist "
