@@ -29,7 +29,7 @@ jobs:
 #     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/build/public
     - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
     - run: git status
-    - run: git add $GITHUB_WORKSPACE/build/
+    - run: git add $GITHUB_WORKSPACE/dist/
     - run: git status
 #     - run: cd $GITHUB_WORKSPACE/build/public
     - run: pwd
