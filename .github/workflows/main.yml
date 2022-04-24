@@ -18,7 +18,7 @@ jobs:
     #- run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     #- run: echo "******************************************************"
     
-    
+      if: success()
     - uses: avinal/github-pages-deploy-action@main
       with:
         GITHUB_TOKEN: ${{ github.token }}
