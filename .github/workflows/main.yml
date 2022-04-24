@@ -15,6 +15,9 @@ jobs:
     - run: npm run build
       if: success()
     - run: echo "******************************************************"
+    - run: pwd
+    - run: ls -ltr .
+    - run: ls -ltr ./
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     - run: git remote -v
     - run: echo "******************************************************"
