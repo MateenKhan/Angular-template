@@ -45,7 +45,7 @@ jobs:
         push-branch: 'build'
         commit-message: 'build files'
         force-add: 'true'
-        files: $GITHUB_WORKSPACE/build/public/
+        files: /home/runner/work/Angular-template/Angular-template/build/public/
         name: Mateen
         email: makjavaprogrammer@gmail.com 
     
