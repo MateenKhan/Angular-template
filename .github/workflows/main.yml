@@ -22,7 +22,7 @@ jobs:
         uses: manzoorwanijk/action-deploy-to-repo@master
         with:
           src_dir: build
-          target_owner: mateenkhan
+          target_owner: MateenKhan
           target_repo: Angular-template
           target_dir: public
           target_branch: build # default
