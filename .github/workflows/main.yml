@@ -11,7 +11,7 @@ jobs:
         uses: MrSquaare/ssh-setup-action@v1
         with:
           host: github.com
-          private-key: ${{ gitlab.token }}
+          private-key: ${{ github.token }}
 
       - name: Checkout the commit
         uses: actions/checkout@v2
