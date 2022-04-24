@@ -17,7 +17,6 @@ jobs:
       if: success()
     - run: echo "******************************************************"
       if: success()
-    - run: mkdir $GITHUB_WORKSPACE/docs
     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/docs
     - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
     - run: git status
