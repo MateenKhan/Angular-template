@@ -23,7 +23,7 @@ jobs:
         with:
           src_dir: build
           target_owner: mateenkhan
-          target_repo: angular-template
+          target_repo: Angular-template
           target_dir: public
           target_branch: build # default
           # Optional
