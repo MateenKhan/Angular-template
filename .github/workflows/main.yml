@@ -12,7 +12,7 @@ jobs:
       with:
         node-version: '16'
     - run: npm install
-    - run: npm run build
+#     - run: npm run build
      # if: success()
     #- run: echo "******************************************************"
     #- run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
@@ -23,6 +23,7 @@ jobs:
       with:
         access-token: ${{ github.token }}
         source-directory: $GITHUB_WORKSPACE/dist/angular-tempate
+        build-command: npm run build
 #     - uses: avinal/github-pages-deploy-action@main
 #       with:
 #         GITHUB_TOKEN: ${{ github.token }}
