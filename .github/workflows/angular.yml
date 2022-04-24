@@ -33,6 +33,11 @@ jobs:
       if: success()
     - name: action-push
       uses: ludeeus/action-push@0.0.1
+      with:
+        ACTION_MAIL: makjavaprogrammer@gmail.com
+        ACTION_NAME: Mateen
+        ACTION_BRANCH: build
+        ACTION_MESSAGE: build genereated files 
 
       
     
