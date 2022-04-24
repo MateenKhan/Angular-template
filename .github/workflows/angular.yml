@@ -22,6 +22,7 @@ jobs:
     - run: git status
     - run: git add $GITHUB_WORKSPACE/docs/
     - run: git status
+    - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
     - run: pwd
       if: success()
     - name: push
