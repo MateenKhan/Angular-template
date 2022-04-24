@@ -11,8 +11,14 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
+    - run: ls  -R $GITHUB_WORKSPACE 
+    - run: echo "becore install"
     - run: npm install
+    - run: echo "after install"
+    - run: ls  -R $GITHUB_WORKSPACE 
+    - run: echo "runinng build"
     - run: npm run build
+    - run: echo "after build"
       if: success()
     - run: echo "******************************************************"
     - run: echo $GITHUB_WORKSPACE
