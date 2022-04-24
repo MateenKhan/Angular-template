@@ -3,12 +3,18 @@ on:
   workflow_dispatch:
     
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
-    name: Build and test
+
     steps:
       - uses: actions/checkout@v2
-      - uses: ng-easy/npm-install@v2
-      - run: npm run build
 
-      
+      # Runs a single command using the runners shell
+      - name: Angular Deploy gh-pages Actions
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1
+        with:
+          github_access_token: ${{ gitlab.token  }} 
+          build_configuration: production 
+          base_href: /Angular-template/  
+          deploy_branch: gh-pages 
+          angular_dist_build_folder: dist/Angular-template
