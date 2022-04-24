@@ -17,11 +17,12 @@ jobs:
     - run: echo "******************************************************"
     - run: pwd
     - run: ls -ltr .
-    - run: ls -ltr ./dist
-    - run: /usr/bin/bash -e "cd ./dist "
+    - run: ls -ltr $GITHUB_WORKSPACE/dist
+    - run: /usr/bin/bash -e "cd $GITHUB_WORKSPACE/dist "
     - run: pwd
-    - run: cd /usr/bin/bash -e ./angular-tempate
+    - run: cd /usr/bin/bash -e "$GITHUB_WORKSPACE/dist/angular-tempate"
     - run: pwd
+    - run: ls -ltr
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     - run: git remote -v
     - run: echo "******************************************************"
