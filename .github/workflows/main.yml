@@ -17,7 +17,10 @@ jobs:
     - run: echo "******************************************************"
     - run: pwd
     - run: ls -ltr .
-    - run: ls -ltr ./
+    - run: ls -ltr ./dist
+    - run: cd ./dist
+    - run: pwd
+    - run: cd ./angular-tempate
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     - run: git remote -v
     - run: echo "******************************************************"
