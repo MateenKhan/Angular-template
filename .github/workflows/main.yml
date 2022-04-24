@@ -13,9 +13,11 @@ jobs:
         node-version: '16'
     - run: npm install
     - run: npm run build
+      if: success()
     - run: echo "******************************************************"
     - run: ls -ltr $GITHUB_WORKSPACE/build
     - run: echo "******************************************************"
+    
     - name: Deploy to GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v2
