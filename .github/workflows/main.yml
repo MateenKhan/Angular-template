@@ -25,9 +25,10 @@ jobs:
     
     - run: cd /home/runner/work/Angular-template/static
     - run: git clone https://github.com/MateenKhan/Angular-template.git -b build
+    - run: cd /home/runner/work/Angular-template/static/Angular-template
     - run: git branch
     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
-    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. /home/static
+    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. /home/runner/work/Angular-template/static
     - run: ls -ltr /home/runner/work/Angular-template/static
 #     - run: /usr/bin/bash -e "cd $GITHUB_WORKSPACE/dist "
 #     - run: pwd
