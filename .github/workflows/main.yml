@@ -15,7 +15,7 @@ jobs:
     - run: echo "becore install"
     - run: npm install
     - run: echo "after install"
-    - run: ls  -R $GITHUB_WORKSPACE 
+    - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
     - run: echo "runinng build"
     - run: npm run build
     - run: echo "after build"
