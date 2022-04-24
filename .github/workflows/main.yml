@@ -37,7 +37,7 @@ jobs:
           npm i
       - name: Build
         run: |
-          npm run build -- --prod
+          npm run build 
       - name: Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
