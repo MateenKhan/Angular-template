@@ -15,7 +15,7 @@ jobs:
     - run: npm run build
       if: success()
     - run: echo "******************************************************"
-    - run: ls -ltr $GITHUB_WORKSPACE/build
+    - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     - run: echo "******************************************************"
     
     - name: Deploy to GitHub Pages
