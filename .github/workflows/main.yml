@@ -12,26 +12,30 @@ jobs:
       with:
         node-version: '16'
     - run: npm install
-    #- run: npm run build
+    - run: npm run build
      # if: success()
     #- run: echo "******************************************************"
     #- run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
     #- run: echo "******************************************************"
     
       if: success()
-    - uses: avinal/github-pages-deploy-action@main
+    - uses: sterlingwes/gh-pages-deploy-action@v1.1
       with:
-        GITHUB_TOKEN: ${{ github.token }}
-        # For python write python package and additional packages if any - "python3 python3-pip" 
-        LANGUAGE: "angular"
-        # Write make command to generate html e.g.- "make html"
-        MAKE_COMMAND: "npm run build"
-        # Write the branch name for storing github pages source 
-        PAGES_BRANCH: "build"
-        # Write the branch name having source files for site/documentation
-        BUILD_FROM: "master"
-        # Write the name of the output folder where generated html is stored by makefile.
-        DOCS_FOLDER: "$GITHUB_WORKSPACE/dist/angular-tempate"
+        access-token: ${{ github.token }}
+        source-directory: $GITHUB_WORKSPACE/dist/angular-tempate
+#     - uses: avinal/github-pages-deploy-action@main
+#       with:
+#         GITHUB_TOKEN: ${{ github.token }}
+#         # For python write python package and additional packages if any - "python3 python3-pip" 
+#         LANGUAGE: "angular"
+#         # Write make command to generate html e.g.- "make html"
+#         MAKE_COMMAND: "npm run build"
+#         # Write the branch name for storing github pages source 
+#         PAGES_BRANCH: "build"
+#         # Write the branch name having source files for site/documentation
+#         BUILD_FROM: "master"
+#         # Write the name of the output folder where generated html is stored by makefile.
+#         DOCS_FOLDER: "$GITHUB_WORKSPACE/dist/angular-tempate"
     
     
 #     - name: Deploy to GitHub Pages
