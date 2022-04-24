@@ -21,9 +21,10 @@ jobs:
       if: success()
     - run: cd $GITHUB_WORKSPACE/dist/angular-tempate
 #     - run: git init
-    - run: git remote set-url origin https://MateenKhan:Breathe%402021github.com/MateenKhan/Angular-template.git
-    - run: git checkout -b build remotes/origin/build
+#     - run: git remote set-url origin https://MateenKhan:Breathe%402021github.com/MateenKhan/Angular-template.git
+#     - run: git checkout -b build remotes/origin/build
     - run: git add *
+    - run: git checkout remotes/origin/build -b build
     - run: git commit -m "uploading build files"
     - run: git push --force
     
