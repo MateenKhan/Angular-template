@@ -20,7 +20,7 @@ jobs:
     - run: echo "******************************************************"
       if: success()
     - run: pwd
-    - run: cd ./dist/angular-tempate
+    - run: cd $GITHUB_WORKSPACE/dist/angular-tempate /usr/bin/bash
     - run: pwd
 #     - run: git init
 #     - run: git remote set-url origin https://MateenKhan:Breathe%402021github.com/MateenKhan/Angular-template.git
