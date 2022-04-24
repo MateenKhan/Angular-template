@@ -11,5 +11,14 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '14'
-    - run: npm install
-    - run: npm build
+    - run: npm run install
+    - run: npm run build
+    
+    - name: Deploy to GitHub Pages
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        target_branch: gh-pages
+        build_dir: public
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
