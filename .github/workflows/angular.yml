@@ -27,17 +27,13 @@ jobs:
       if: success()
     - run: echo "******************************************************"
     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/build/public
+    - run: git status
+    - run: git add build/*
+    - run: git status
     - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
     - run: cd $GITHUB_WORKSPACE/build/public
     - run: pwd
       if: success()
-#     - name: action-push
-#       uses: ludeeus/action-push@0.0.1
-#       with:
-#         ACTION_MAIL: 'makjavaprogrammer@gmail.com'
-#         ACTION_NAME: 'Mateen'
-#         ACTION_BRANCH: 'build'
-#         ACTION_MESSAGE: 'build genereated files '
     - name: push
       uses: github-actions-x/commit@v2.9
       with:
