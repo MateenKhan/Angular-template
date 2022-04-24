@@ -23,6 +23,6 @@ jobs:
       uses: crazy-max/ghaction-github-pages@v2
       with:
         target_branch: build
-        build_dir: public
+        build_dir: $GITHUB_WORKSPACE/dist/angular-tempate
       env:
         GITHUB_TOKEN: ${{ github.token }}
