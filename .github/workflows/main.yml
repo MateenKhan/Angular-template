@@ -1,83 +1,37 @@
-name: deploy_as_static_in_gh_pages_branch
+name: Build and Deploy Assets
 on:
-  workflow_dispatch:
-    
+  push:
+    branches: [master]
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
+    name: Deploy Assets
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-    - run: mkdir $GITHUB_WORKSPACE/static
-    - run: ls  -R $GITHUB_WORKSPACE -Isrc 
-    - run: npm install
-    - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
-    - run: echo "runinng build"
-    - run: npm run build
-    - run: echo "after build"
-    - run: git branch -a
-      if: success()
-    - run: echo "******************************************************"
-    - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
-    
-    - run: cd $GITHUB_WORKSPACE/static
-    - run: git clone https://github.com/MateenKhan/Angular-template.git -b build
-      if: success()
-    - run: ls -ltr $GITHUB_WORKSPACE/static/
-    - run: cd $GITHUB_WORKSPACE/static/Angular-template
-    - run: git branch
-    - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
-    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/static/Angular-template
-    - run: ls -ltr /home/runner/work/Angular-template/static
-#     - run: /usr/bin/bash -e "cd $GITHUB_WORKSPACE/dist "
-#     - run: pwd
-#     - run: cd /usr/bin/bash -e "$GITHUB_WORKSPACE/dist/angular-tempate"
-#     - run: pwd
-#     - run: ls -ltr
-#     - run: ls -ltr $GITHUB_WORKSPACE/dist/angular-tempate
-    - run: git remote -v
-    - run: echo "******************************************************"
-      if: success()
-#     - run: pwd
-#     - run: cd $GITHUB_WORKSPACE/dist/angular-tempate /usr/bin/bash
-#     - run: pwd
-#     - run: git init
-#     - run: git remote set-url origin https://MateenKhan:Breathe%402021github.com/MateenKhan/Angular-template.git
-#     - run: git checkout -b build remotes/origin/build
-    - run: git add *
-#     - run: git checkout remotes/origin/build -b build
-    - run: git commit -m "uploading build files"
-    - run: git push --force
-    
-#       if: success()
-#     - uses: sterlingwes/gh-pages-deploy-action@v1.1
-#       with:
-#         access-token: ${{ github.token }}
-#         source-directory: $GITHUB_WORKSPACE/dist/angular-tempate
-#         build-command: npm run build
-#     - uses: avinal/github-pages-deploy-action@main
-#       with:
-#         GITHUB_TOKEN: ${{ github.token }}
-#         # For python write python package and additional packages if any - "python3 python3-pip" 
-#         LANGUAGE: "angular"
-#         # Write make command to generate html e.g.- "make html"
-#         MAKE_COMMAND: "npm run build"
-#         # Write the branch name for storing github pages source 
-#         PAGES_BRANCH: "build"
-#         # Write the branch name having source files for site/documentation
-#         BUILD_FROM: "master"
-#         # Write the name of the output folder where generated html is stored by makefile.
-#         DOCS_FOLDER: "$GITHUB_WORKSPACE/dist/angular-tempate"
-    
-    
-#     - name: Deploy to GitHub Pages
-#       if: success()
-#       uses: crazy-max/ghaction-github-pages@v2
-#       with:
-#         target_branch: build
-#         build_dir: $GITHUB_WORKSPACE/dist/angular-tempate
-#       env:
-#         GITHUB_TOKEN: ${{ github.token }}
+      - name: Setup SSH
+        uses: MrSquaare/ssh-setup-action@v1
+        with:
+          host: github.com
+          private-key: ${{ gitlab.token }}
+
+      - name: Checkout the commit
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: dcodeIO/setup-node-nvm@master
+        with:
+          node-version: lts/*
+
+      - name: Install deps and build
+        run: npm install; npm run build
+
+      - name: Deploy
+        uses: manzoorwanijk/action-deploy-to-repo@master
+        with:
+          src_dir: build
+          target_owner: mateenkhan
+          target_repo: angular-template
+          target_dir: public
+          target_branch: build # default
+          # Optional
+          # access_token: ${{ secrets.GITHUB_ACCESS_TOKEN }} # Not needed when using SSH
+          cleanup_command: "rm -rf assets/* && rm -f assets/asset-manifest.json"
