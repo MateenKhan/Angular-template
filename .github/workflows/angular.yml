@@ -12,8 +12,8 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
-        path: 'master/'
-        ref: 'master'
+        path: master
+        ref: master
     - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
     - run: npm install
     - run: npm run build
@@ -26,8 +26,8 @@ jobs:
     - uses: actions/checkout@v3
       with:
         node-version: '16'
-        path: '/build'
-        ref: 'build'
+        path: build
+        ref: build
       if: success()
     - run: echo "******************************************************"
     - run: ls  -R $GITHUB_WORKSPACE/master -Inode_modules -Isrc 
