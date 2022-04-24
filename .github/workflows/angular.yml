@@ -12,14 +12,12 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
     - run: npm install
     - run: npm run build
       if: success()
     - run: echo "******************************************************"
-    - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
     
-#     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/static/Angular-template
+    
       if: success()
     - uses: actions/checkout@v3
       with:
@@ -28,6 +26,9 @@ jobs:
         ref: build
       if: success()
     - run: echo "******************************************************"
+    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/build/public
     - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
+    - run: $GITHUB_WORKSPACE/build/public
+    - run: pwd
       
     
