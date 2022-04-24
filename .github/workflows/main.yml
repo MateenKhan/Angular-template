@@ -18,7 +18,7 @@ jobs:
     - run: pwd
     - run: ls -ltr .
     - run: ls -ltr ./dist
-    - run: cd  /usr/bin/bash -e ./dist
+    - run: /usr/bin/bash -e "cd ./dist "
     - run: pwd
     - run: cd /usr/bin/bash -e ./angular-tempate
     - run: pwd
