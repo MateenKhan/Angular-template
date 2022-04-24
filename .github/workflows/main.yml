@@ -16,6 +16,7 @@ jobs:
       if: success()
     - run: echo "******************************************************"
     - run: echo $GITHUB_WORKSPACE
+    - run: ls -ltr $GITHUB_WORKSPACE
     - run: pwd
     - run: ls -ltr .
     - run: ls -ltr $GITHUB_WORKSPACE/dist
