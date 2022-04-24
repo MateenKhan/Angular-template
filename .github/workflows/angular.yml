@@ -1,0 +1,36 @@
+name: deploy_as_static_in_gh_pages_branch
+on:
+  push:
+    branches: [master]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        path: 'master'
+        ref: 'master'
+    - run: npm install
+    - run: ls  -R $GITHUB_WORKSPACE -Inode_modules -Isrc 
+    - run: npm run build
+      if: success()
+    - run: echo "******************************************************"
+    - run: ls  -R $GITHUB_WORKSPACE/master -Inode_modules -Isrc 
+    
+#     - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/static/Angular-template
+      if: success()
+    - uses: actions/checkout@v3
+      with:
+        node-version: '16'
+        path: 'build'
+        ref: 'build'
+      if: success()
+    - run: echo "******************************************************"
+    - run: ls  -R $GITHUB_WORKSPACE/master -Inode_modules -Isrc 
+    - run: ls  -R $GITHUB_WORKSPACE/build -Inode_modules -Isrc 
+      
+    
