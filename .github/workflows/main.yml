@@ -11,7 +11,6 @@ jobs:
         uses: MrSquaare/ssh-setup-action@v1
         with:
           host: github.com
-          private-key: ${{ github.token }}
 
       - name: Checkout the commit
         uses: actions/checkout@v2
@@ -33,5 +32,5 @@ jobs:
           target_dir: public
           target_branch: build # default
           # Optional
-          # access_token: ${{ secrets.GITHUB_ACCESS_TOKEN }} # Not needed when using SSH
+          access_token: ${{ github.token }} # Not needed when using SSH
           cleanup_command: "rm -rf assets/* && rm -f assets/asset-manifest.json"
