@@ -33,7 +33,7 @@
           },
           "configurations": {
             "production": {
-			"baseHref": "/Angular-template/",
+			        "baseHref": "/Angular-template/",
               "budgets": [
                 {
                   "type": "initial",
