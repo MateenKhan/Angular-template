@@ -1,4 +1,3 @@
-testing jira integration
 
 ### Update "baseHref" property in angular.json file, to see the output in the pages
 
