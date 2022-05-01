@@ -1,4 +1,4 @@
-OS-1 #comment testing jira integreation #time 1m
+testing jira integration
 
 ### Update "baseHref" property in angular.json file, to see the output in the pages
 
