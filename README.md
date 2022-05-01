@@ -1,3 +1,5 @@
+OS-1 #comment testing jira integreation #time 1m
+
 ### Update "baseHref" property in angular.json file, to see the output in the pages
 
 #### NOTE: value should be your project name ( Case Sensitive match!!! )
