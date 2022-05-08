@@ -15,10 +15,9 @@ jobs:
     - run: npm install
     - run: npm run build
       if: success()
-    - run: echo "******************************************************"
-      if: success()
-    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/docs
+    - run: echo "******************************************************"      
     - run: ls  -R $GITHUB_WORKSPACE/ -Inode_modules -Isrc 
+    - run: cp -a $GITHUB_WORKSPACE/dist/angular-tempate/. $GITHUB_WORKSPACE/docs
     - run: git status
     - run: git add $GITHUB_WORKSPACE/docs/
     - run: git status
