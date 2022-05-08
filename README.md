@@ -1,6 +1,6 @@
 #### NOTE: update below two values which should be your project name ( Case Sensitive match!!! )
 
-### Update "baseHref","outputPath" property in angular.json file, first image 
+### Update "baseHref","outputPath" property in angular.json file, reference below image 
 
 
 
