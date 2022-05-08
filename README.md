@@ -1,6 +1,9 @@
+#### NOTE: update below two values which should be your project name ( Case Sensitive match!!! )
 
-### Update "baseHref" property in angular.json file, to see the output in the pages
+### Update "baseHref","outputPath" property in angular.json file, first image 
 
-#### NOTE: value should be your project name ( Case Sensitive match!!! )
 
-![image](https://user-images.githubusercontent.com/13028448/165002987-1f4d69f4-a79b-43c3-8dc8-58c908e724b5.png)
+
+
+![image1](https://user-images.githubusercontent.com/13028448/165002987-1f4d69f4-a79b-43c3-8dc8-58c908e724b5.png)
+![image2](https://user-images.githubusercontent.com/13028448/167311974-61b6a8bd-584b-431d-83d2-0fe8257022aa.png)
