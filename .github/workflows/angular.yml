@@ -1,4 +1,4 @@
-name: deploy
+name: angular build and deploy to github
 on:
   workflow_dispatch:
     
