@@ -1,6 +1,8 @@
 name: angular build and deploy to github
 on:
   workflow_dispatch:
+  push: 
+    branches: master
     
     
 jobs:
